@@ -3,7 +3,7 @@ import { StyleSheet, Text, Image, View } from "react-native"
 //*************Components****************//
 import Card from "../components/card"
 
-export default function ProductDetail(product, key) {
+export default function ProductDetail(product) {
 
     const productSelected = product.route.params.element;
     // console.log(productSelected.element) //devuelve un objeto pero sin params

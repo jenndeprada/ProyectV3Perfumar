@@ -11,12 +11,17 @@ import { useState } from 'react';
 import FavoriteProducts from './screens/favoriteProducts';
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+import {Provider} from "react-redux";
+import store from "./store";
+
+
 export default function App() {
 
   const Stack = createNativeStackNavigator();
   const FavStack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
+  
 
   function createStackRender(){
     return(
@@ -37,29 +42,33 @@ export default function App() {
   }
   
 
-
-  
   return (
+
+    <Provider store={store}> 
+
+      <NavigationContainer>
+            <SafeAreaView style={style.safeZone}>
+                  <Tab.Navigator screenOptions={{headerShown: false}}>
+                    <Tab.Screen name={"Products"} component={createMainRender} options={{tabBarIcon: ({focused}) => (
+                        <View>
+                          <Ionicons color={focused? "pink" : "black" } name= {"ios-home"} size={28}/>
+                        </View>
+                      )}}
+                    />
+                    <Tab.Screen name={"Favorites"} component={createStackRender} 
+                      options={{tabBarIcon: ({focused}) => (
+                        <View>
+                          <Ionicons color={focused? "pink" : "black" } name= {"ios-heart"} size={28}/>
+                        </View>
+                      )}}
+                    />
+                  </Tab.Navigator>
+              </SafeAreaView>
+          </NavigationContainer>
+
+    </Provider>
     
-    <NavigationContainer>
-       <SafeAreaView style={style.safeZone}>
-            <Tab.Navigator screenOptions={{headerShown: false}}>
-              <Tab.Screen name={"Products"} component={createMainRender} options={{tabBarIcon: ({focused}) => (
-                  <View>
-                    <Ionicons color={focused? "pink" : "black" } name= {"ios-home"} size={28}/>
-                  </View>
-                )}}
-              />
-              <Tab.Screen name={"Favorites"} component={createStackRender} 
-                options={{tabBarIcon: ({focused}) => (
-                  <View>
-                    <Ionicons color={focused? "pink" : "black" } name= {"ios-heart"} size={28}/>
-                  </View>
-                )}}
-              />
-            </Tab.Navigator>
-        </SafeAreaView>
-    </NavigationContainer>
+   
   );
 }
 

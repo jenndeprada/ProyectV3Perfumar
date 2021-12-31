@@ -6,19 +6,20 @@ import Item from '../components/item';
 import Card from "./../components/card"
 import {products} from "./../data/products"
 
+
 export default function ProductsList({navigation}) {
+
+  const renderItem = ({ item }) => (
+    <Item element={item} navigation={navigation} />
+  );
+
+  
 
 
     return(
         <View style={style.products}> 
-          <ScrollView style={{flex: 1}}>
-
-            { products.length !== 0
-              ? products.map((element) =>  {return Item(element, navigation, element.id)})
-              : <h3>Loading..</h3>
-            }
-
-          </ScrollView>
+          <FlatList keyExtractor={item => item.id} data={products} style={{flex: 1}} renderItem={renderItem}>            
+          </FlatList>
         </View>
     )
 }
@@ -35,3 +36,13 @@ const style = StyleSheet.create({
 
 })
 
+
+
+
+
+
+
+// {({item}) => {
+//   { products.length !== 0
+//     ? products.map((element) =>  {return Item(element, navigation, element.id)})
+//     : <h3>Loading..</h3>}} }>
