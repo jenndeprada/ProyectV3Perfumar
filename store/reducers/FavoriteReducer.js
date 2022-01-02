@@ -7,29 +7,20 @@ const initialState = {
 }
 
 const FavoriteReducer = ( state=initialState, action) => {
-    console.log(initialState)
+    console.log(state, "initial")
     switch(action.type) {
         case ADD_FAV:
-            return {...(state.favorites), favorites: action.payload }
+            const isInFavs = state.favorites.find(fav => fav === action.payload) 
+            return isInFavs ? {...state} : {...state, favorites: [...state.favorites, action.payload]}
+        default:
+            return {...state}    
     }
-    return state
 }
 
-
+console.log(initialState.favorites, "state")
 export default FavoriteReducer
 
 
 
 
 
-// //Thunk para realizar llamadas asíncronas
-// import thunkMiddleware from "redux-thunk";
-
-// //Dev tools para ver los states por consola
-// import {composeWithDevTools} from 'redux-devtools-extension';
-
-// const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
-
-
-//Nuestro store generado con el RootReducer y nuestro enhancer compuesto con devtools y llamadas asíncronas
-//export default createStore(RootReducer, composedEnhancer);
