@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
-import { View, ScrollView, StyleSheet, Text, FlatList } from 'react-native';
-import { NativeScreenNavigationContainer } from 'react-native-screens';
-import Item from '../components/item';
+import { View, StyleSheet, Text, FlatList } from 'react-native';
 
 //**************Components**************/
-import Card from "./../components/card"
-import {products} from "./../data/products"
+import Item from '../components/item';
 
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useSelector } from 'react-redux';
 
 export default function FavoriteProducts({navigation}) {
 

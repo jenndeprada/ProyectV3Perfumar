@@ -5,7 +5,7 @@ export const products = [
         marca: "Giorgio Armani",
         tipo: "floral",
         precio: 15.999,
-        imagen: "https://www.aromas.es/delegate/fotoArticulo?tipo=G&codArticulo=116129&codigoBarras=3614272907676&nameProduct=giorgio-armani-my-way-perfume-mujer-edp",
+        imagen: "https://s.cdnshm.com/catalog/ro/t/440630401/apa-de-parfum-giorgio-armani-my-way-50-ml-pentru-femei.jpg",
         categoria: "Femenina",
         id: 1
     },
@@ -38,5 +38,3 @@ export const products = [
     }
 
 ]
-
-// require("https://http2.mlstatic.com/D_NQ_NP_682248-MLA32350169906_092019-O.jpg")
