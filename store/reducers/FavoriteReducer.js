@@ -1,23 +1,26 @@
-import { ADD_FAV } from "../actions/addFavorite.action"
+import { ADD_FAV, DELETE_FAV } from "../actions/addFavorite.action"
 
 
 const initialState = {
     favorites: [],
-    favSelected: null
+    
 }
 
-const FavoriteReducer = ( state=initialState, action) => {
-    console.log(state, "initial")
+const FavoriteReducer = (state=initialState, action) => {
+    const isInFavs = state.favorites.find(fav => fav == action.payload) 
     switch(action.type) {
         case ADD_FAV:
-            const isInFavs = state.favorites.find(fav => fav === action.payload) 
             return isInFavs ? {...state} : {...state, favorites: [...state.favorites, action.payload]}
+
+        case DELETE_FAV: 
+            const favListFiltered  = state.favorites.filter(fav => fav !== action.payload)
+            return isInFavs ? {...state, favorites: favListFiltered} : {...state}
+              
         default:
             return {...state}    
     }
 }
 
-console.log(initialState.favorites, "state")
 export default FavoriteReducer
 
 

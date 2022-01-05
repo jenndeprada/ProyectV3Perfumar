@@ -1,4 +1,5 @@
 export const ADD_FAV = "ADD_FAVORITE"
+export const DELETE_FAV = "DELETE_FAV"
 
 export function addFavAction(productSelected) { //la accion toma un producto a agregar a favoritos
 
@@ -8,4 +9,12 @@ export function addFavAction(productSelected) { //la accion toma un producto a a
     }
     
 
+}
+
+export function deleteFromFavs(productSelected) {
+
+    return {
+        type: DELETE_FAV,
+        payload: productSelected
+    }
 }

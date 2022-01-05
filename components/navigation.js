@@ -1,12 +1,18 @@
 import { SafeAreaView, StyleSheet, View } from 'react-native';
+import Ionicons from "react-native-vector-icons/Ionicons";
+
+//*****************Navigation******************** */ 
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-//*****************Components******************* */
+
+//*****************Screens imported******************* */
+
 import ProductsList from './../screens/productList';
 import ProductDetail from './../screens/productDetail';
 import FavoriteProducts from './../screens/favoriteProducts';
-import Ionicons from "react-native-vector-icons/Ionicons";
+
 
 export default function Navigation() {
 

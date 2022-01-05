@@ -24,6 +24,7 @@ export default function FavoriteProducts({navigation}) {
 
     return(
         <View style={style.products}> 
+        {console.log(favoriteList)}
           <FlatList data={favoriteList} keyExtractor={(product) => product.id.toString()} renderItem={renderFavorites} style={{flex: 1}}>
              
           </FlatList>
